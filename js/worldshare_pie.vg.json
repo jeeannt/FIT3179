@@ -6,27 +6,62 @@
   "data": {
     "url": "https://raw.githubusercontent.com/jeeannt/FIT3179/main/population_by_country_2020.csv"
   },
-
   "transform": [
     {
-        "aggregate": [{"op": "sum", "field": "World Share", "as": "aggregate_share"}],
-        "groupby": ["Country (or dependency)"]
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "World Share",
+          "as": "aggregate_share"
+        }
+      ],
+      "groupby": [
+        "Country (or dependency)"
+      ]
     },
     {
-        "window": [{"op": "row_number", "as": "rank"}],
-        "sort": [{ "field": "aggregate_share", "order": "descending" }]
-      },   
+      "window": [
+        {
+          "op": "row_number",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "aggregate_share",
+          "order": "descending"
+        }
+      ]
+    },
     {
-        "calculate": "datum.rank < 11 ? datum['Country (or dependency)'] : 'All Others'", "as": "ranked_country"
+      "calculate": "datum.rank < 11 ? datum['Country (or dependency)'] : 'All Others'",
+      "as": "ranked_country"
     }
   ],
   "mark": "arc",
   "encoding": {
-    "theta": {"aggregate": "sum", "field": "aggregate_share", "type": "quantitative"},
-    "color": {"field": "ranked_country", "type": "nominal", "title": "Country"},
+    "theta": {
+      "aggregate": "sum",
+      "field": "aggregate_share",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "ranked_country",
+      "type": "nominal",
+      "title": "Country"
+    },
     "tooltip": [
-        {"field": "ranked_country", "type": "nominal", "title": "Country"},
-        {"aggregate": "sum", "field": "aggregate_share", "type": "quantitative", "title": "World Percentage(%)"}
-        ]
+      {
+        "field": "ranked_country",
+        "type": "nominal",
+        "title": "Country"
+      },
+      {
+        "aggregate": "sum",
+        "field": "aggregate_share",
+        "type": "quantitative",
+        "title": "World Percentage(%)"
+      }
+    ]
   }
 }
