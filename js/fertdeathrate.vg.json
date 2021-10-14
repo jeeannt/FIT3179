@@ -1,0 +1,224 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "data": {
+      "url": "https://raw.githubusercontent.com/jeeannt/FIT3179/main/population_by_country_2020.csv"
+    },
+    "transform": [
+      {
+        "filter": {
+          "field": "Death Rate",
+          "valid": true
+        }
+      },
+      {
+        "filter": "datum['Population (2020)'] > Population_Above"
+      },
+      {
+        "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+      }
+    ],
+    "params": [
+      {
+        "name": "Population_Above",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 100000000,
+          "step": 1000000,
+          "name": "Minimum Population: "
+        }
+      },
+      {
+        "name": "Continent_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Africa",
+            "Asia",
+            "Europe",
+            "North America",
+            "Oceania",
+            "South America"
+          ],
+          "labels": [
+            "Show All",
+            "Africa",
+            "Asia",
+            "Europe",
+            "North America",
+            "Oceania",
+            "South America"
+          ],
+          "name": "Continent Selection: "
+        }
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Fert Rate",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "Death Rate",
+        "type": "quantitative"
+      }
+    },
+    "layer": [
+      {
+        "selection": {
+          "continent_highlight": {
+            "type": "multi",
+            "fields": [
+              "Continent"
+            ],
+            "bind": "legend"
+          }
+        },
+        "mark": "circle",
+        "encoding": {
+          "x": {
+            "field": "Fert Rate",
+            "type": "quantitative"
+          },
+          "y": {
+            "field": "Death Rate",
+            "type": "quantitative"
+          },
+          "color": {
+            "field": "Continent",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Africa",
+                "Asia",
+                "Europe",
+                "North America",
+                "Oceania",
+                "South America"
+              ],
+              "range": [
+                "#a6cee3",
+                "#377eb8",
+                "#e41a1c",
+                "#984ea3",
+                "#ff7f00",
+                "#a65628"
+              ]
+            }
+          },
+          "opacity": {
+            "condition": {
+              "selection": "continent_highlight",
+              "value": 0.6
+            },
+            "value": 0.2
+          },
+          "size": {
+            "field": "Population (2020)",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [
+                1000000,
+                10000000,
+                50000000,
+                100000000,
+                500000000
+              ],
+              "range": [
+                10,
+                50,
+                150,
+                200,
+                300,
+                400
+              ]
+            },
+            "legend": {
+              "format": ".1s"
+            }
+          },
+          "tooltip": [
+            {
+              "field": "Country (or dependency)",
+              "type": "nominal"
+            },
+            {
+              "field": "Continent",
+              "type": "nominal",
+              "format": ","
+            },
+            {
+              "field": "Population (2020)",
+              "type": "quantitative",
+              "format": ","
+            },
+            {
+              "field": "Fert Rate",
+              "type": "quantitative",
+              "format": ","
+            },
+            {
+              "field": "Death Rate",
+              "type": "quantitative"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {
+            "field": "Country (or dependency)",
+            "type": "nominal"
+          },
+          "color": {
+            "value": "black"
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum[ 'Country (or dependency)'] == 'Nigeria' || datum['Country (or dependency)'] == 'China' || datum['Country (or dependency)'] == 'Malaysia' || datum['Country (or dependency)'] == 'Australia' || datum['Country (or dependency)'] == 'Mexico' || datum['Country (or dependency)'] == 'United States of America' || datum[ 'Country (or dependency)'] == 'Russia' || datum[ 'Country (or dependency)'] == 'Colombia'",
+              "value": 1
+            },
+            "value": 0
+          },
+          "tooltip": [
+            {
+              "field": "Country (or dependency)",
+              "type": "nominal"
+            },
+            {
+              "field": "Continent",
+              "type": "nominal",
+              "format": ","
+            },
+            {
+              "field": "Population (2020)",
+              "type": "quantitative",
+              "format": ","
+            },
+            {
+              "field": "Fert Rate",
+              "type": "quantitative",
+              "format": ","
+            },
+            {
+              "field": "Death Rate",
+              "type": "quantitative"
+            }
+          ]
+        }
+      }
+    ]
+  }
