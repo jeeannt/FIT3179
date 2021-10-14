@@ -18,40 +18,101 @@
 <body>
     
   <div class="page">
+       <!-- pure grid group -->
+       <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h1>TITLE</h1>
+        </div>
+      </div>
+    <!-- end pure grid group -->
+
     <!-- pure grid group -->
      <div class="pure-g">
-       <div class="pure-u-1-1">
-         <h1>Population of Countries in Year 2020</h1>
-       </div>
        <div class="pure-u-2-3">
          <div id="vis1" class="vis-container"></div>
        </div>
+       <div class="pure-u-1-3">
+        <div class="description description-right">
+          <h2>Population of Countries in Year 2020</h2>
+          <p>Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+        </div>
+      </div>
      </div>
    <!-- end pure grid group -->
  
- 
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2>Title</h2>
+        <p>Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+
     <!-- pure grid group -->
     <div class="pure-g">
      <div class="pure-u-1-1">
-       <h1>Countries Population from 1995 to 2020</h1>
+       <h2>Countries Population from 1995 to 2020</h2>
      </div>
      <div class="pure-u-2-3">
        <div id="vis2" class="vis-container"></div>
      </div>
    </div>
    <!-- end pure grid group --> 
-   
+
+       <!-- pure grid group -->
+       <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>Country Population Percentage in Year 2020</h2>
+        </div>
+        <div class="pure-u-1-1">
+          <div id="vis3" class="vis-container"></div>
+        </div>
+      </div>
+      <!-- end pure grid group --> 
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description description-left">
+          <h2>Top 10 Fertility Rate & Death Rate of Country</h2>
+          <p>Description... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+      </div>
+      <div class="pure-u-2-3">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+  </div>
+  <!-- end pure grid group -->
+
+   <div class="pure-g">
+    <div class="pure-u-1-1 small-font">
+      <p>This visualisation is created by <a href="https://github.com/jeeannt" target="_blank">Jee Ann Chua</a>.</p>
+    </div>
+  </div>
+
+
    </div> <!-- end page -->
     
  <script type="text/javascript">
-   var specVis1 = "js/homeworkw9.vg.json";
+   var specVis1 = "js/density_choropleth_map.vg.json";
    var specVis2= "js/countries1995-2020.vg.json";
+   var specVis3= "js/worldshare_pie.vg.json";
+   var specVis4= "js/birthdeathrate_bar.vega.json";
  
    vegaEmbed('#vis1', specVis1).then(function(result) {
      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
    }).catch(console.error);
    
     vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
+     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+   }).catch(console.error);
+
+   vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+   }).catch(console.error);
+
+   vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
    }).catch(console.error);
  

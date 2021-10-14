@@ -2,7 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "height": 800,
   "width": 1000,
-  "title": "Countries Population from 1995 to 2020",
   "data": {
     "url": "https://raw.githubusercontent.com/jeeannt/FIT3179/main/Countries%20Population%20from%201995%20to%202020.csv"
   },
