@@ -60,7 +60,8 @@
     "encoding": {
       "x": {
         "field": "Fert Rate",
-        "type": "quantitative"
+        "type": "quantitative",
+        "title": "Fertility Rate"
       },
       "y": {
         "field": "Death Rate",
@@ -82,7 +83,8 @@
         "encoding": {
           "x": {
             "field": "Fert Rate",
-            "type": "quantitative"
+            "type": "quantitative",
+            "title": "Fertility Rate"
           },
           "y": {
             "field": "Death Rate",
@@ -148,11 +150,6 @@
               "type": "nominal"
             },
             {
-              "field": "Continent",
-              "type": "nominal",
-              "format": ","
-            },
-            {
               "field": "Population (2020)",
               "type": "quantitative",
               "format": ","
@@ -160,7 +157,8 @@
             {
               "field": "Fert Rate",
               "type": "quantitative",
-              "format": ","
+              "format": ",",
+              "title": "Fertility Rate"
             },
             {
               "field": "Death Rate",
@@ -199,11 +197,6 @@
               "type": "nominal"
             },
             {
-              "field": "Continent",
-              "type": "nominal",
-              "format": ","
-            },
-            {
               "field": "Population (2020)",
               "type": "quantitative",
               "format": ","
@@ -211,7 +204,8 @@
             {
               "field": "Fert Rate",
               "type": "quantitative",
-              "format": ","
+              "format": ",",
+              "title": "Fertility Rate"
             },
             {
               "field": "Death Rate",
