@@ -11,7 +11,7 @@
     margin: auto;
     padding: 50px;
     padding-top: 35px;
-	background-color:#FAF3F3;
+	background-color:white;
 	box-shadow: 15px 15px 5px rgb(173, 173, 173);
 	border-radius: 50px;
 }
@@ -30,11 +30,7 @@ h2{
     font-size: 25px;
     font-family: Times New Roman, Times, serif
 }
-div.centre {
-	margin: auto;
-	width: 100%;
-	padding: 5px;
-}
+
 strong { 
 	font-weight: bold;
 	font-style: italic;
