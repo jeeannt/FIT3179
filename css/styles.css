@@ -6,3 +6,9 @@
 	/*height: 1000px;
 	width: 800px;*/
 }
+.page {
+    width: 1200px;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+}
