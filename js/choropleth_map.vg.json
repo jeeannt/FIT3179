@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
-    "height": 500,
+    "width": 1100,
+    "height": 600,
     "projection": {"type": "equirectangular"},
     "params": [
       {
@@ -89,7 +89,7 @@
         "mark": {
           "type": "text",
           "align": "left",
-          "dx": -350,
+          "dx": -450,
           "text": ["China and India are few ", "of the countries with the highest", "population throughout the","years 1955-2020"],
           "fontSize": 9.5
         },

@@ -1,125 +1,203 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  
+
+
   <!-- Import pure.css -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-  
-</head>
-<body>
-    
-  <div class="page">
-    <div>
-       <h1 style="text-align: center;font-family: Times New Roman, Times, serif;font-size: 200dp;">World Population</h1>
-   </div>
-   <div class="pure-g">
-       <div class="pure-u-1-1">
-           <h2>Introduction</h2>
-           <p style="text-align: justify;">
-               Description... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl. 
-           </p>
-       </div>
-   </div>
 
-    <!-- pure grid group -->
-     <div class="pure-g">
-       <div class="pure-u-2-3">
-         <div id="vis1" class="vis-container"></div>
-       </div>
-       <div class="pure-u-1-3">
-        <div class="description description-right">
-          <h2>Population of Countries throughout Year 1955 - 2020</h2>
-          <p style="text-align: justify;">Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+</head>
+
+<body style="background-color:white;">
+
+  <div class="page">
+    <div class>
+      <div>
+        <h1 style="text-align: center;font-family: Times New Roman, Times, serif;font-size: 50px;">World Population</h1>
+        <p style="text-align: center; font-style: italic;font-family: Times New Roman, Times, serif;font-size: 20px">A
+          visualisation by Jee Ann Chua</p>
+      </div>
+    </div>
+    <div class="pure-g">
+
+      <div class="pure-u-2-3">
+        <h2>Introduction</h2>
+        <p style="text-align: justify;padding-right: 80px;">
+          In demographics, the world population is the <strong>number of humans</strong> currently living, and was
+          estimated to
+          have reached 7,800,000,000 people as of March 2020.
+          It took over 2 million years of human prehistory and history for the world's population to reach 1 billion and
+          only 200 years more to grow to 7 billion. [1]
+        </p>
+      </div>
+      <div class="pure-u-1-3">
+        <div>
+          <img style="display: block;margin-left: auto;padding-right: 50px; padding-bottom: 30px;"
+            src="data\img\worldpopulation.png" alt="World Population Image" width="350" height="350">
         </div>
       </div>
-     </div>
-   <!-- end pure grid group -->
- 
+    </div>
+
     <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h2>Title</h2>
-        <p>Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+        <div class="description description-right" style="text-align: center;">
+          <h2>Population of Countries throughout Year 1955 - 2020</h2>
+          <p style="text-align: center;">The map below shows the population of each country from year 1955 to 2020.
+            Based on the map, we see that <strong>China</strong> and <strong>India</strong> maintained to have the
+            <strong>highest population</strong>
+            over the years compared to the other countries.
+          </p>
+          <p style="font-style: italic; font-size:small"> Note that there are missing data for some countries due to
+            limitations.</p>
+          <p style="font-style: italic; font-size:small"> The 'Year' slider below can be used to explore the population
+            over the years.</p>
+        </div>
       </div>
     </div>
-  <!-- end pure grid group -->
+    <!-- end pure grid group -->
 
     <!-- pure grid group -->
     <div class="pure-g">
-     <div class="pure-u-1-1">
-       <h2>Countries Population from 1995 to 2020</h2>
-     </div>
-     <div class="pure-u-2-3">
-       <div id="vis2" class="vis-container"></div>
-     </div>
-   </div>
-   <!-- end pure grid group --> 
-
-       <!-- pure grid group -->
-       <div class="pure-g">
-        <div class="pure-u-1-1">
-          <h2>Top 10 Highest Country Population Percentage in Year 2020</h2>
-        </div>
-        <div class="pure-u-1-1">
-          <div id="vis3" class="vis-container"></div>
-        </div>
+      <div class="pure-u-1-1" style="padding-bottom: 50px;">
+        <div id="vis1" class="vis-container"></div>
       </div>
-      <!-- end pure grid group --> 
+    </div>
+    <!-- end pure grid group -->
+
 
     <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-2-3">
-        <div id="vis4" class="vis-container"></div>
+    <div class="pure-g" style="padding-bottom: 50px;">
+      <div class="pure-u-2-3"">
+        <div id="vis2" class="vis-container"></div>
       </div>
       <div class="pure-u-1-3">
-        <div class="description description-right">
-          <h2>Countries Fertility Rate & Death Rate</h2>
-          <p style="text-align: justify;">Description... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        <h2>Top 10 Density Countries</h2>
+        <p style="text-align: justify; padding-right: 50px;">Population density is a measurement of population per unit
+          area.
+          In simple terms, population density refers to the <strong>number of people living in an area per square
+            kilometre</strong>. [2]</p>
+        <p style="text-align: justify; padding-right: 50px;">
+          The bar chart to the left shows the top 10 countries with the highest
+          density. Though <strong>Monaco</strong> has a <strong>lower population</strong> but it has a <strong>land
+            area</strong>.
+        </p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <h2>Top 10 Highest Country Population Percentage in Year 2020</h2>
+      </div>
+      <div class="pure-u-2-3" style="padding-bottom: 50px;">
+        <div id="vis3" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="description description-right" style="text-align: center;">
+          <h2>Countries Fertility Rate & Death Rate (2020)</h2>
+          <p style="text-align: center;">Fertility and death rate are the few factors that <strong>affects the
+              population of a country</strong>.
+            Fertility rate is the <strong>average number of children born</strong> to women during their reproductive
+            years. For the
+            population
+            in a given area to remain stable, an overall total fertility rate of 2.1 is needed, assuming no immigration
+            or emigration occurs. [3]
+            Meanwhile, mortality rate, or death rate, is a measure of the <strong>number of deaths</strong> (in general,
+            or due to a
+            specific cause)
+            in a particular population, scaled to the size of that population, per unit of time. [4]</p>
+          <p style="text-align: center;">The bubble plot below shows the fertility and death of each country in year
+            2020.</p>
+          <p style="font-style: italic; font-size:small"> Note that there are missing data for some countries due to
+            limitations.</p>
+          <p style="font-style: italic; font-size:small"> The 'Continent' legend on the side can be used to highlight
+            selected continent.</p>
+          <p style="font-style: italic; font-size:small"> The 'Minimum Population' slider on the bottom can be used
+            filter the minimum population of countries.</p>
+          <p style="font-style: italic; font-size:small"> The 'Continent Selection' on the bottom can be used to display
+            selected continent.</p>
         </div>
       </div>
-  </div>
-  <!-- end pure grid group -->
-
-   <div class="pure-g">
-    <div class="pure-u-1-1 small-font">
-      <p>This visualisation is created by <a href="https://github.com/jeeannt" target="_blank">Jee Ann Chua</a>.</p>
     </div>
-  </div>
+    <!-- end pure grid group -->
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1" style="padding-bottom: 50px;">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
 
 
-   </div> <!-- end page -->
-    
- <script type="text/javascript">
-   var specVis1 = "js/choropleth_map.vg.json";
-   var specVis2= "js/countries1995-2020.vg.json";
-   var specVis3= "js/worldshare_pie.vg.json";
-   var specVis4= "js/fertdeathrate.vg.json";
- 
-   vegaEmbed('#vis1', specVis1).then(function(result) {
-     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-   }).catch(console.error);
-   
-    vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
-     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-   }).catch(console.error);
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="https://github.com/jeeannt" target="_blank">Jee Ann Chua</a>.</p>
+      </div>
+    </div>
 
-   vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
-     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-   }).catch(console.error);
+    <div name="sources">
+      <div style="width: 10%;">
+        <p style="text-align: left;">Sources:</p>
+      </div>
+      <div style="width: 90%; margin-left: 10%;">
+        <p class="source-text">[1]: <a
+            href="https://en.wikipedia.org/wiki/World_population">https://en.wikipedia.org/wiki/World_population</a>
+        </p>
+        <p class="source-text">[2]: <a
+          href="https://en.wikipedia.org/wiki/Population_density">https://en.wikipedia.org/wiki/Population_density</a>
+      </p>
+        <p class="source-text">[3]: <a
+            href="https://www.britannica.com/topic/fertility-rate">https://www.britannica.com/topic/fertility-rate</a>
+        </p>
+        <p class="source-text">[4]: <a
+            href="https://en.wikipedia.org/wiki/Mortality_rate">https://en.wikipedia.org/wiki/Mortality_rate</a>
+        </p>
+      </div>
+    </div>
 
-   vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
-     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-   }).catch(console.error);
- 
- </script>
- </body>
- </html>
+
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specVis1 = "js/choropleth_map.vg.json";
+    var specVis2 = "js/top10density.vg.json";
+    var specVis3 = "js/worldshare_pie.vg.json";
+    var specVis4 = "js/fertdeathrate.vg.json";
+
+    vegaEmbed('#vis1', specVis1).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+  </script>
+</body>
+
+</html>

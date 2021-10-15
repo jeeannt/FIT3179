@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
+    "width": 1025,
     "height": 600,
     "data": {
       "url": "https://raw.githubusercontent.com/jeeannt/FIT3179/main/population_by_country_2020.csv"
