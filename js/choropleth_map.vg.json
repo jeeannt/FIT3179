@@ -91,7 +91,7 @@
           "align": "left",
           "dx": -450,
           "text": ["China and India are few ", "of the countries with the highest", "population throughout the","years 1955-2020"],
-          "fontSize": 9.5
+          "fontSize": 11
         },
         "encoding": {
           "color": {"value": "black"}
