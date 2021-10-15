@@ -5,6 +5,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/jeeannt/FIT3179/main/population_by_country_2020.csv"
   },
+
   "transform": [
     {
       "aggregate": [
@@ -36,7 +37,15 @@
       "calculate": "datum.rank < 11 ? datum['Country (or dependency)'] : 'All Others'",
       "as": "ranked_country"
     }
-  ],
+  ],  "selection": {
+    "country_highlight": {
+      "type": "multi",
+      "fields": [
+        "ranked_country"
+      ],
+      "bind": "legend"
+    }
+  },
   "mark": "arc",
   "encoding": {
     "theta": {
@@ -47,7 +56,29 @@
     "color": {
       "field": "ranked_country",
       "type": "nominal",
-      "title": "Country"
+      "title": "Country",
+      "scale": {
+        "range": [
+          "#a6cee3",
+          "#1f78b4",
+          "#b2df8a",
+          "#33a02c",
+          "#fb9a99",
+          "#e31a1c",
+          "#fdbf6f",
+          "#ff7f00",
+          "#cab2d6",
+          "#6a3d9a",
+          "#ffff99"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {
+        "selection": "country_highlight",
+        "value": 1
+      },
+      "value": 0.1
     },
     "tooltip": [
       {
