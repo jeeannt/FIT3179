@@ -57,17 +57,6 @@
         }
       }
     ],
-    "encoding": {
-      "x": {
-        "field": "Fert Rate",
-        "type": "quantitative",
-        "title": "Fertility Rate"
-      },
-      "y": {
-        "field": "Death Rate",
-        "type": "quantitative"
-      }
-    },
     "layer": [
       {
         "selection": {
@@ -84,11 +73,13 @@
           "x": {
             "field": "Fert Rate",
             "type": "quantitative",
-            "title": "Fertility Rate"
+            "title": "Fertility Rate",
+            "scale": {"domain": [0, 8]}
           },
           "y": {
             "field": "Death Rate",
-            "type": "quantitative"
+            "type": "quantitative",
+            "scale": {"domain": [0, 16]}
           },
           "color": {
             "field": "Continent",
@@ -177,6 +168,15 @@
           "fontStyle": "italic"
         },
         "encoding": {
+            "x": {
+              "field": "Fert Rate",
+              "type": "quantitative",
+              "title": "Fertility Rate"
+            },
+            "y": {
+              "field": "Death Rate",
+              "type": "quantitative"
+            },
           "text": {
             "field": "Country (or dependency)",
             "type": "nominal"
@@ -213,6 +213,18 @@
             }
           ]
         }
-      }
+      },
+      {  "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 70,
+        "dy": -280,
+        "text": ["Africa has a relatively high fertility", "and death rate where Europe has",
+         "a relatively low fertility rate and high", "death rate."],
+        "fontSize": 12
+      },
+      "encoding": {
+        "color": {"value": "black"}
+        }}
     ]
   }
